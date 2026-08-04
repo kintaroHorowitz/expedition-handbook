@@ -1,0 +1,75 @@
+site_name: Expedition Handbook
+site_description: Preparation handbook for the Tour des Écrins 2027 and GR20 2028
+site_author: Debois
+
+# Replace the username below if needed.
+repo_name: kintarohorowitz/expedition-handbook
+repo_url: https://github.com/kintarohorowitz/expedition-handbook
+edit_uri: edit/main/docs/
+
+# This will become the GitHub Pages URL.
+site_url: https://kintarohorowitz.github.io/expedition-handbook/
+
+theme:
+  name: material
+  language: en
+
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: index.md
+  - Project:
+      - Objective: 01-project/objective.md
+      - Profile: 01-project/profile.md
+      - Timeline: 01-project/timeline.md
+      - Milestones: 01-project/milestones.md
+      - Risks: 01-project/risks.md
