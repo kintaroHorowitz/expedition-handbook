@@ -51,6 +51,17 @@ Push the Linear branch only when authorized. Review the pushed change against th
 acceptance criteria and request human review. Do not merge, publish, or update
 Linear state unless the task explicitly authorizes that action.
 
+## Publication workflow
+
+Pull requests run the pinned dependency checks and strict MkDocs build without
+deploying. Successful pushes to `main` deploy the site to GitHub Pages. The
+repository setting **Settings → Pages → Build and deployment → Source** must be
+set to **GitHub Actions**.
+
+After deployment, manually verify the published homepage, navigation, search,
+theme, representative pages, and links in a desktop browser and on a physical
+smartphone.
+
 ## Completion checklist
 
 - Acceptance criteria are satisfied.

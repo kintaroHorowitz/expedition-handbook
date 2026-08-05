@@ -39,4 +39,16 @@ python -m pip check
 mkdocs build --strict
 ```
 
+## Publication
+
+The handbook is published at
+<https://kintarohorowitz.github.io/expedition-handbook/>. Pull requests build the
+site for validation without deploying it. A successful push to `main` deploys
+the site automatically through GitHub Actions.
+
+The repository must use **Settings → Pages → Build and deployment → Source:
+GitHub Actions**. After a deployment, verify the published homepage, navigation,
+search, theme, representative pages, and links on both a desktop browser and a
+physical smartphone.
+
 See `CONTRIBUTING.md` before making changes.
