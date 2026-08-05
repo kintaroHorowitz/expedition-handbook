@@ -13,13 +13,18 @@ A mobile-first MkDocs Material handbook for preparing for Tour des Écrins in
 
 ## Local setup
 
-Create an isolated Python environment and install the pinned dependencies:
+Python 3.12.x is required. Create an isolated environment and install the
+dependencies:
 
 ```bash
-python3 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
+
+`requirements.txt` pins the complete environment: the direct MkDocs requirements
+and their resolved transitive dependencies. Update these pins deliberately and
+validate them in a fresh Python 3.12 environment; do not add unused plugins.
 
 ## Local preview
 
@@ -30,6 +35,7 @@ mkdocs serve
 ## Validation
 
 ```bash
+python -m pip check
 mkdocs build --strict
 ```
 
