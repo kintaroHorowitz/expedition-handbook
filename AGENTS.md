@@ -69,10 +69,42 @@ approved proposal from ChatGPT; uncertainty must be escalated.
 Before editing:
 
 1. Read the relevant Linear issue, acceptance criteria, and comments.
-2. Confirm the current branch and use the Linear branch when practical.
+2. Run `git branch --show-current` and apply the protected-branch guardrail.
 3. Read the relevant architecture and decision records.
 4. Inspect the current implementation and working tree.
 5. Identify scope, validation, privacy, and decision-boundary risks.
+
+## Protected-branch guardrail
+
+Before any file modification, run:
+
+```bash
+git branch --show-current
+```
+
+Treat `main`, `master`, and every branch explicitly configured or identified as
+protected as read-only by default. If the current branch is protected, stop
+before editing files, staging, committing, amending, rebasing, or pushing.
+
+Report the branch mismatch and provide the exact applicable command using the
+Linear-provided issue branch:
+
+```bash
+git switch <linear-issue-branch>
+```
+
+If that branch does not exist locally, provide:
+
+```bash
+git switch -c <linear-issue-branch>
+```
+
+General approval to implement, commit, or push does not authorize work on a
+protected branch. An exception is valid only when the user explicitly names both
+the protected branch and the exact operation authorized.
+
+Before every push, run `git branch --show-current` again and require an exact
+match with the Linear issue branch. Otherwise stop and report the mismatch.
 
 ## Implementation behaviour
 
