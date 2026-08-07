@@ -8,13 +8,29 @@ are in `AGENTS.md`; repository ownership and data flow are in `ARCHITECTURE.md`.
 ## Before implementation
 
 1. Read the Linear issue, acceptance criteria, and comments.
-2. Confirm the branch and working-tree state.
-3. Use the Linear-provided branch when practical.
+2. Run `git branch --show-current` before modifying any file.
+3. Confirm that it is the Linear-provided issue branch and inspect the working
+   tree state.
 4. Read relevant architecture and decision records.
 5. Inspect the existing implementation and identify required validation.
 
 Significant technical features require a design proposal and approval before
 implementation. Record durable approved technical decisions in `DECISIONS.md`.
+
+## Protected-branch procedure
+
+`main`, `master`, and explicitly protected branches are read-only by default. If
+the branch check identifies a protected branch, stop before editing, staging,
+committing, amending, rebasing, or pushing. Report the mismatch, then provide:
+
+```bash
+git switch <linear-issue-branch>
+```
+
+Use `git switch -c <linear-issue-branch>` when the issue branch does not yet
+exist locally. General implementation or Git approval is not a protected-branch
+exception; the user must explicitly name the protected branch and the exact
+operation authorized.
 
 ## Implementation
 
@@ -47,9 +63,11 @@ unless the architecture explicitly requires them.
 
 ## Push and review
 
-Push the Linear branch only when authorized. Review the pushed change against the
-acceptance criteria and request human review. Do not merge, publish, or update
-Linear state unless the task explicitly authorizes that action.
+Immediately before pushing, run `git branch --show-current` and confirm that it
+exactly matches the Linear issue branch. Stop and report any mismatch. Push that
+branch only when authorized, review the change against the acceptance criteria,
+and request human review. Do not merge, publish, or update Linear state unless
+the task explicitly authorizes that action.
 
 ## Publication workflow
 
