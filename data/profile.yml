@@ -1,0 +1,28 @@
+schema_version: 1
+updated_on: 2026-08-10
+
+person:
+  height_cm: 190
+  # Latest accepted planning snapshot; this file is not measurement history.
+  current_body_weight:
+    value_kg: 124
+    observed_on: null
+    # Supported precision values: exact, approximate, estimated.
+    precision: approximate
+
+historical_references:
+  tour_du_mont_blanc:
+    body_weight_kg: 113
+    starting_backpack_weight_kg: 15
+
+expeditions:
+  tour_des_ecrins:
+    target_body_weight_kg:
+      minimum: 105
+      maximum: 110
+    target_period:
+      year: 2027
+      month: 6
+      # A window is qualitative and does not imply exact start or end dates.
+      window: final_week
+    target_duration_days: 6
